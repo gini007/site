@@ -135,10 +135,7 @@ const About: React.FC = () => {
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        We are a community of visionaries, technologists, and future business leaders united by our passion for 
-        cutting-edge automation and deep technology. Our mission is to bridge the gap between breakthrough 
-        innovations and business applications, preparing Harvard's next generation of leaders for an 
-        AI-driven future.
+        We are a community of future business leaders united by our passion for commercializing cutting-edge technology and research. Our mission is to help prepare the HBS community to bridge the gap between breakthrough innovations and business applications, across the variety of promising fields below.
       </MissionText>
       
       <TechIconsGrid

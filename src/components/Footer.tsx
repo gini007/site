@@ -136,7 +136,7 @@ const Footer: React.FC = () => {
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
       >
-        © 2025 HBS Automation & Deep Tech Club • Powered by Innovation
+      © 2025 HBS Automation & Deep Tech Club
       </Copyright>
     </FooterContainer>
   );

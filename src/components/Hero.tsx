@@ -193,7 +193,7 @@ const Hero: React.FC = () => {
           initial="hidden"
           animate="visible"
         >
-          A community for those interested in driving innovation through commercialization of breakthrough research and technology.
+          Building and supporting the growing HBS community interested in commercialization of R&D-driven scientific innovations.
         </HeroDescription>
         
         <CTAButton

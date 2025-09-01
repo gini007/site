@@ -43,12 +43,13 @@ const LeadershipGrid = styled.div`
   
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 25px;
+    max-width: 700px;
   }
   
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 500px) {
     gap: 20px;
+    max-width: 500px;
   }
 `;
 
@@ -68,6 +69,17 @@ const LeaderCard = styled(motion.div)`
     box-shadow: 0 20px 40px rgba(165, 28, 48, 0.15);
     transform: translateY(-5px);
   }
+  
+  @media (max-width: 900px) {
+    padding: 30px 25px;
+    max-width: 300px;
+  }
+  
+  @media (max-width: 500px) {
+    padding: 25px 20px;
+    border-radius: 15px;
+    max-width: 220px;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -83,6 +95,18 @@ const ProfileImage = styled.img`
     border-color: rgba(165, 28, 48, 0.6);
     transform: scale(1.05);
   }
+  
+  @media (max-width: 900px) {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 500px) {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
 `;
 
 const LeaderName = styled.h3`
@@ -90,6 +114,16 @@ const LeaderName = styled.h3`
   font-size: 1.45rem;
   margin-bottom: 10px;
   color: #A51C30;
+  
+  @media (max-width: 900px) {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
 `;
 
 const LeaderTitle = styled.h4`
@@ -97,6 +131,16 @@ const LeaderTitle = styled.h4`
   margin-bottom: 20px;
   color: #fff;
   font-weight: 300;
+  
+  @media (max-width: 900px) {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
 `;
 
 const LeaderBio = styled.p`

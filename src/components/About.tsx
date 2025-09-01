@@ -49,12 +49,13 @@ const TechIconsGrid = styled.div`
   
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 20px;
+    max-width: 500px;
   }
   
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  @media (max-width: 400px) {
+    gap: 15px;
+    max-width: 350px;
   }
 `;
 
@@ -73,6 +74,15 @@ const TechIconItem = styled(motion.div)`
     border-color: rgba(165, 28, 48, 0.3);
     box-shadow: 0 15px 35px rgba(165, 28, 48, 0.15);
   }
+  
+  @media (max-width: 768px) {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+  
+  @media (max-width: 400px) {
+    padding: 15px 10px;
+  }
 `;
 
 const TechIcon = styled.div`
@@ -83,6 +93,16 @@ const TechIcon = styled.div`
   ${TechIconItem}:hover & {
     transform: scale(1.2);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 400px) {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
 `;
 
 const TechLabel = styled.span`
@@ -90,6 +110,14 @@ const TechLabel = styled.span`
   color: #ccc;
   text-align: center;
   font-weight: 500;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 400px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const techData = [

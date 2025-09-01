@@ -31,11 +31,10 @@ const FeaturesGrid = styled.div`
   
   @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 25px;
   }
   
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 500px) {
     gap: 20px;
   }
 `;
@@ -71,12 +70,31 @@ const FeatureCard = styled(motion.div)`
   &:hover::before {
     transform: translateX(100%);
   }
+  
+  @media (max-width: 900px) {
+    padding: 30px 20px;
+  }
+  
+  @media (max-width: 500px) {
+    padding: 25px 15px;
+    border-radius: 12px;
+  }
 `;
 
 const FeatureIcon = styled.div`
   font-size: 3rem;
   margin-bottom: 20px;
   color: #A51C30;
+  
+  @media (max-width: 900px) {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
 `;
 
 const FeatureTitle = styled.h4`
@@ -84,11 +102,31 @@ const FeatureTitle = styled.h4`
   font-size: 1.5rem;
   margin-bottom: 15px;
   color: #fff;
+  
+  @media (max-width: 900px) {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
 `;
 
 const FeatureDescription = styled.p`
   color: #ccc;
   line-height: 1.6;
+  
+  @media (max-width: 900px) {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 500px) {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
 `;
 
 const featuresData = [

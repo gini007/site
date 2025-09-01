@@ -205,7 +205,9 @@ const Hero: React.FC = () => {
           variants={buttonVariants}
           initial="hidden"
           animate="visible"
-          onClick={() => scrollToSection('connect')}
+          href="https://forms.gle/pKab1rkMa7aZnu4M7"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import axolotlRobot from '../assets/axolotl_robot.png';
 
 const HeroSection = styled.section`
   min-height: 70vh;
@@ -39,14 +38,9 @@ const HeroRobotPopup = styled(motion.div)`
   right: -80px;
   top: 50%;
   transform: translateY(-50%);
+  font-size: 60px;
   pointer-events: none;
   z-index: 1001;
-`;
-
-const RobotImage = styled.img`
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
 `;
 
 const HeroSubtitle = styled(motion.h2)`
@@ -182,7 +176,7 @@ const Hero: React.FC = () => {
             animate={showRobot ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0, x: 20 }}
             transition={{ duration: 0.4, ease: [0.68, -0.55, 0.265, 1.55] }}
           >
-            <RobotImage src={axolotlRobot} alt="Axolotl Robot" />
+            🤖
           </HeroRobotPopup>
         </HeroTitle>
         

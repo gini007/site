@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import axolotlRobot from '../assets/axolotl_robot.png';
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -41,10 +42,16 @@ const Logo = styled(motion.div)`
 const RobotPopup = styled(motion.div)`
   position: absolute;
   right: -60px;
-  top: -20px;
-  font-size: 40px;
+  top: 5%;
+  transform: translateY(-15%);
   pointer-events: none;
   z-index: 1001;
+`;
+
+const RobotImage = styled.img`
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 `;
 
 const NavLinks = styled.ul`
@@ -112,11 +119,33 @@ const Header: React.FC<HeaderProps> = ({ onLeadershipClick }) => {
         >
           Deep Tech @ HBS
           <RobotPopup
-            initial={{ opacity: 0, scale: 0, x: 20 }}
-            animate={showRobot ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0, x: 20 }}
-            transition={{ duration: 0.4, ease: [0.68, -0.55, 0.265, 1.55] }}
+            initial={{ opacity: 0, x: 20, y: 10 }}
+            animate={showRobot ? { 
+              opacity: 1, 
+              x: 0, 
+              y: [0, -3, 0, 3, 0],
+              rotate: [0, 2, -1, 1, 0]
+            } : { 
+              opacity: 0, 
+              x: 20, 
+              y: 10 
+            }}
+            transition={{ 
+              opacity: { duration: 0.3 },
+              x: { duration: 0.4, ease: "easeOut" },
+              y: { 
+                duration: 2.5, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              },
+              rotate: { 
+                duration: 3, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }
+            }}
           >
-            🤖
+            <RobotImage src={axolotlRobot} alt="Axolotl Robot" />
           </RobotPopup>
         </Logo>
         

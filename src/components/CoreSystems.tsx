@@ -25,11 +25,16 @@ const SectionTitle = styled(motion.h3)`
 
 const FeaturesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-top: 60px;
   
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
     gap: 20px;
   }

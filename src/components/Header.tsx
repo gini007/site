@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import axolotlRobot from '../assets/axolotl_robot.png';
@@ -46,6 +46,10 @@ const RobotPopup = styled(motion.div)`
   transform: translateY(-15%);
   pointer-events: none;
   z-index: 1001;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const RobotImage = styled.img`
@@ -54,13 +58,48 @@ const RobotImage = styled.img`
   object-fit: contain;
 `;
 
-const NavLinks = styled.ul`
+const NavLinks = styled.ul<{ isOpen: boolean }>`
   display: flex;
   list-style: none;
   gap: 30px;
   
   @media (max-width: 768px) {
-    display: none;
+    display: ${props => props.isOpen ? 'flex' : 'none'};
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.98);
+    padding: 20px;
+    border-top: 1px solid rgba(165, 28, 48, 0.2);
+    gap: 20px;
+  }
+`;
+
+const HamburgerButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const MobileRobotContainer = styled.div`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 `;
 
@@ -98,6 +137,19 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onLeadershipClick }) => {
   const [showRobot, setShowRobot] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -149,24 +201,66 @@ const Header: React.FC<HeaderProps> = ({ onLeadershipClick }) => {
           </RobotPopup>
         </Logo>
         
-        <NavLinks>
+        <MobileRobotContainer>
+          <motion.div
+            animate={{
+              y: [0, -3, 0, 3, 0],
+              rotate: [0, 2, -1, 1, 0]
+            }}
+            transition={{
+              y: {
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut"
+              },
+              rotate: {
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }
+            }}
+          >
+            <RobotImage src={axolotlRobot} alt="Axolotl Robot" />
+          </motion.div>
+        </MobileRobotContainer>
+        
+        <HamburgerButton 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </HamburgerButton>
+        
+        <NavLinks isOpen={isMobileMenuOpen}>
           <motion.li whileHover={{ y: -2 }}>
-            <NavLink onClick={() => scrollToSection('about')}>
+            <NavLink onClick={() => {
+              scrollToSection('about');
+              setIsMobileMenuOpen(false);
+            }}>
               About
             </NavLink>
           </motion.li>
           <motion.li whileHover={{ y: -2 }}>
-            <NavLink onClick={() => scrollToSection('core-systems')}>
+            <NavLink onClick={() => {
+              scrollToSection('core-systems');
+              setIsMobileMenuOpen(false);
+            }}>
               Events
             </NavLink>
           </motion.li>
           <motion.li whileHover={{ y: -2 }}>
-            <NavLink onClick={onLeadershipClick}>
+            <NavLink onClick={() => {
+              onLeadershipClick();
+              setIsMobileMenuOpen(false);
+            }}>
               Leadership
             </NavLink>
           </motion.li>
           <motion.li whileHover={{ y: -2 }}>
-            <NavLink onClick={() => scrollToSection('connect')}>
+            <NavLink onClick={() => {
+              scrollToSection('connect');
+              setIsMobileMenuOpen(false);
+            }}>
               Connect
             </NavLink>
           </motion.li>

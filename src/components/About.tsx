@@ -41,12 +41,21 @@ const MissionText = styled(motion.p)`
 const TechIconsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
   gap: 40px;
   margin-top: 40px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 `;
 
 const TechIconItem = styled(motion.div)`

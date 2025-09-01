@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -6,6 +6,7 @@ import About from './components/About';
 import CoreSystems from './components/CoreSystems';
 import Footer from './components/Footer';
 import BackgroundEffects from './components/BackgroundEffects';
+import Leadership from './components/Leadership';
 import GlobalStyles from './styles/GlobalStyles';
 
 const AppContainer = styled.div`
@@ -17,16 +18,27 @@ const AppContainer = styled.div`
 `;
 
 function App() {
+  const [currentPage, setCurrentPage] = useState<'home' | 'leadership'>('home');
+
+  const showLeadership = () => setCurrentPage('leadership');
+  const showHome = () => setCurrentPage('home');
+
   return (
     <>
       <GlobalStyles />
       <AppContainer>
         <BackgroundEffects />
-        <Header />
-        <Hero />
-        <About />
-        <CoreSystems />
-        <Footer />
+        {currentPage === 'home' ? (
+          <>
+            <Header onLeadershipClick={showLeadership} />
+            <Hero />
+            <About />
+            <CoreSystems />
+            <Footer />
+          </>
+        ) : (
+          <Leadership onBack={showHome} />
+        )}
       </AppContainer>
     </>
   );

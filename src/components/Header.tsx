@@ -85,7 +85,11 @@ const NavLink = styled(motion.a)`
   }
 `;
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onLeadershipClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ onLeadershipClick }) => {
   const [showRobot, setShowRobot] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -125,6 +129,11 @@ const Header: React.FC = () => {
           <motion.li whileHover={{ y: -2 }}>
             <NavLink onClick={() => scrollToSection('core-systems')}>
               Events
+            </NavLink>
+          </motion.li>
+          <motion.li whileHover={{ y: -2 }}>
+            <NavLink onClick={onLeadershipClick}>
+              Leadership
             </NavLink>
           </motion.li>
           <motion.li whileHover={{ y: -2 }}>

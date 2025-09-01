@@ -12,6 +12,11 @@ const HeroSection = styled.section`
   position: relative;
   background: radial-gradient(ellipse at center, rgba(165, 28, 48, 0.08) 0%, transparent 70%);
   padding: 40px 0;
+  
+  @media (max-width: 768px) {
+    padding-top: 120px;
+    min-height: 80vh;
+  }
 `;
 
 const HeroContent = styled(motion.div)`

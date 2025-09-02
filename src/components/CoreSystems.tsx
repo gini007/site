@@ -133,12 +133,12 @@ const featuresData = [
   {
     icon: '🤖',
     title: 'AI & Robotics',
-    description: 'Deep dives into artificial intelligence, machine learning, and autonomous systems transforming industries worldwide.'
+    description: 'Deep dives into Physical AI and autonomous systems transforming industries worldwide.'
   },
   {
     icon: '⚡',
     title: 'Tech Innovation',
-    description: 'Exploring breakthrough technologies in quantum computing, biotech, and next-generation manufacturing.'
+    description: 'Exploring breakthrough technologies in quantum computing, climate tech, biotech,and next-generation manufacturing.'
   },
   {
     icon: '🚀',

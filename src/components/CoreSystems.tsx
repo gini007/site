@@ -133,7 +133,7 @@ const featuresData = [
   {
     icon: '🤖',
     title: 'AI & Robotics',
-    description: 'Deep dives into Physical AI and autonomous systems transforming industries worldwide.'
+    description: 'Deep dives into physical AI and autonomous systems transforming industries worldwide.'
   },
   {
     icon: '⚡',

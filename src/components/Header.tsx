@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axolotlRobot from '../assets/axolotl_robot.png';
+import clubLogo from '../assets/logo.png';
 import { JOIN_URL } from '../constants';
 import { theme } from '../styles/theme';
 
@@ -33,8 +33,8 @@ const Logo = styled.a`
   letter-spacing: 0.01em;
 
   img {
-    width: 34px;
-    height: 34px;
+    height: 36px;
+    width: auto;
     object-fit: contain;
   }
 `;
@@ -126,7 +126,7 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <Nav>
         <Logo href="#top" onClick={() => goTo('top')}>
-          <img src={axolotlRobot} alt="" />
+          <img src={clubLogo} alt="Automation & Deep Tech Club" />
           Deep Tech @ HBS
         </Logo>
 

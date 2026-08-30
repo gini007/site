@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/site/static/js/main.48493b67.js",
+    "static/media/axolotl_robot.png": "/site/static/media/axolotl_robot.37be73a95c7f4070e941.png",
+    "static/media/linkedin-icon-logo-png-transparent.png": "/site/static/media/linkedin-icon-logo-png-transparent.b1bebb391a157454d569.png",
+    "static/media/sanchit-pic.jpg": "/site/static/media/sanchit-pic.72be7e0e4e7a5823f447.jpg",
+    "static/media/michelle-pic.jpg": "/site/static/media/michelle-pic.5083705dad1a7177b0fb.jpg",
+    "static/media/otto-pic.jpg": "/site/static/media/otto-pic.b91d7d46b0510e16dfc7.jpg",
+    "index.html": "/site/index.html",
+    "main.48493b67.js.map": "/site/static/js/main.48493b67.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.48493b67.js"
+  ]
+}

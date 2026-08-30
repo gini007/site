@@ -1,143 +1,101 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import linkedinLogo from '../assets/linkedin-icon-logo-png-transparent.png';
+import { EMAIL_URL, JOIN_URL, LINKEDIN_URL } from '../constants';
+import { theme } from '../styles/theme';
 
 const FooterContainer = styled.footer`
-  text-align: center;
-  padding: 50px;
-  border-top: 1px solid rgba(165, 28, 48, 0.2);
-  background: rgba(0, 0, 0, 0.8);
-  
-  @media (max-width: 768px) {
-    padding: 40px 20px;
+  border-top: 1px solid ${theme.color.line};
+`;
+
+const Inner = styled.div`
+  max-width: ${theme.width};
+  margin: 0 auto;
+  padding: 48px 24px 40px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: end;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
   }
 `;
 
-const FooterTitle = styled(motion.h3)`
-  font-family: 'Orbitron', monospace;
-  color: #A51C30;
-  margin-bottom: 30px;
+const Title = styled.h2`
   font-size: 2rem;
+  margin-bottom: 10px;
 `;
 
-const SocialLinks = styled.div`
+const Note = styled.p`
+  color: ${theme.color.muted};
+  max-width: 28rem;
+`;
+
+const Links = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 20px;
-  
-  @media (max-width: 768px) {
-    gap: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+
+  @media (max-width: 700px) {
+    justify-content: flex-start;
   }
 `;
 
-const SocialLink = styled(motion.a)`
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(45deg, #A51C30, #C8102E);
-  border-radius: 50%;
-  display: flex;
+const FooterLink = styled.a`
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-decoration: none;
-  font-size: 20px;
-  transition: all 0.3s;
-  cursor: pointer;
-  
+  padding: 10px 16px;
+  border: 1px solid ${theme.color.lineStrong};
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: ${theme.color.text};
+
   &:hover {
-    box-shadow: 0 0 20px rgba(165, 28, 48, 0.4);
+    border-color: ${theme.color.text};
   }
 `;
 
-const Copyright = styled(motion.p)`
-  color: #888;
-  font-size: 0.9rem;
+const JoinLink = styled(FooterLink)`
+  background: ${theme.color.crimson};
+  border-color: ${theme.color.crimson};
+
+  &:hover {
+    background: ${theme.color.crimsonHover};
+    border-color: ${theme.color.crimsonHover};
+  }
 `;
 
-const socialLinks = [
-  { icon: '📧', href: 'mailto:mbaautomationanddeeptechclub@groups.hbs.edu', label: 'Email' },
-  { icon: linkedinLogo, href: 'https://www.linkedin.com/company/automation-deep-tech-club-at-harvard-business-school/', label: 'LinkedIn', isImage: true }
-];
+const Copyright = styled.p`
+  max-width: ${theme.width};
+  margin: 0 auto;
+  padding: 0 24px 36px;
+  color: ${theme.color.faint};
+  font-size: 0.88rem;
+`;
 
 const Footer: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <FooterContainer id="connect" ref={ref}>
-      <FooterTitle
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        INITIALIZE CONNECTION
-      </FooterTitle>
-      
-      <SocialLinks
-        as={motion.div}
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        {socialLinks.map((social, index) => (
-          <SocialLink
-            key={index}
-            href={social.href}
-            aria-label={social.label}
-            variants={itemVariants}
-            whileHover={{ 
-              rotate: 360, 
-              scale: 1.1,
-              transition: { duration: 0.6 }
-            }}
-            whileTap={{ scale: 0.9 }}
-          >
-            {social.isImage ? (
-              <img src={social.icon} alt={social.label} style={{ width: '24px', height: '24px' }} />
-            ) : (
-              social.icon
-            )}
-          </SocialLink>
-        ))}
-      </SocialLinks>
-      
-      <Copyright
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-      >
-      © 2025 HBS Automation & Deep Tech Club
-      </Copyright>
+    <FooterContainer id="connect">
+      <Inner>
+        <div>
+          <Title>Get involved</Title>
+          <Note>
+            Join the club on Eventbrite, or reach the team by email and LinkedIn.
+          </Note>
+        </div>
+        <Links>
+          <JoinLink href={JOIN_URL} target="_blank" rel="noopener noreferrer">
+            Join on Eventbrite
+          </JoinLink>
+          <FooterLink href={EMAIL_URL}>Email</FooterLink>
+          <FooterLink href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </FooterLink>
+        </Links>
+      </Inner>
+      <Copyright>© 2026 HBS Automation & Deep Tech Club</Copyright>
     </FooterContainer>
   );
 };

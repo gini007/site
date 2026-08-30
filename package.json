@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "HBS Automation & Deep Tech Club - Modern React Website",
   "private": true,
+  "homepage": "https://hbs-adtc.github.io/site",
   "dependencies": {
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",

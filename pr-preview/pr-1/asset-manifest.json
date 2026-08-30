@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.js": "/site/pr-preview/pr-1/static/js/main.809dc5aa.js",
+    "static/media/axolotl_robot.png": "/site/pr-preview/pr-1/static/media/axolotl_robot.37be73a95c7f4070e941.png",
+    "static/media/sanchit-pic.jpg": "/site/pr-preview/pr-1/static/media/sanchit-pic.72be7e0e4e7a5823f447.jpg",
+    "static/media/michelle-pic.jpg": "/site/pr-preview/pr-1/static/media/michelle-pic.5083705dad1a7177b0fb.jpg",
+    "static/media/otto-pic.jpg": "/site/pr-preview/pr-1/static/media/otto-pic.b91d7d46b0510e16dfc7.jpg",
+    "index.html": "/site/pr-preview/pr-1/index.html",
+    "main.809dc5aa.js.map": "/site/pr-preview/pr-1/static/js/main.809dc5aa.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.809dc5aa.js"
+  ]
+}

@@ -195,7 +195,7 @@ const Hero: React.FC = () => {
           variants={buttonVariants}
           initial="hidden"
           animate="visible"
-          href="https://forms.gle/pKab1rkMa7aZnu4M7"
+          href="https://www.eventbrite.com/e/automation-deep-tech-club-registration-tickets-1998340082982"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}

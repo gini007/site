@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import sanchitPic from '../assets/sanchit-pic.jpg';
-import michellePic from '../assets/michelle-pic.jpg';
-import ottoPic from '../assets/otto-pic.jpg';
 import { theme } from '../styles/theme';
 
 const Section = styled.section`
@@ -35,13 +32,20 @@ const Card = styled.article`
   text-align: center;
 `;
 
-const Photo = styled.img`
+const Monogram = styled.div`
   width: 128px;
   height: 128px;
   border-radius: 50%;
-  object-fit: cover;
   margin: 0 auto 18px;
-  border: 1px solid ${theme.color.lineStrong};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(165, 28, 48, 0.12);
+  border: 1px solid rgba(165, 28, 48, 0.35);
+  color: ${theme.color.crimson};
+  font-family: ${theme.font.serif};
+  font-size: 2.1rem;
+  letter-spacing: 0.04em;
 `;
 
 const Name = styled.h3`
@@ -56,19 +60,19 @@ const Role = styled.p`
 
 const leadership = [
   {
-    name: 'Sanchit Bhattacharjee',
+    name: 'Tyler Mangini',
     title: 'Co-President',
-    image: sanchitPic,
+    initials: 'TM',
   },
   {
-    name: 'Michelle Chen',
+    name: 'Gurshaan Madan',
     title: 'Co-President',
-    image: michellePic,
+    initials: 'GM',
   },
   {
-    name: 'Otto Salmi',
+    name: 'Nathan Shiham Alam',
     title: 'Chief Financial Officer',
-    image: ottoPic,
+    initials: 'NA',
   },
 ];
 
@@ -79,7 +83,7 @@ const Leadership: React.FC = () => {
       <Grid>
         {leadership.map(leader => (
           <Card key={leader.name}>
-            <Photo src={leader.image} alt={leader.name} />
+            <Monogram aria-hidden="true">{leader.initials}</Monogram>
             <Name>{leader.name}</Name>
             <Role>{leader.title}</Role>
           </Card>

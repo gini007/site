@@ -15,10 +15,14 @@ const SectionTitle = styled.h2`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 
-  @media (max-width: 800px) {
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 560px) {
     grid-template-columns: 1fr;
     max-width: 420px;
   }
@@ -32,20 +36,14 @@ const Card = styled.article`
   text-align: center;
 `;
 
-const Monogram = styled.div`
+const Photo = styled.img`
   width: 128px;
   height: 128px;
   border-radius: 50%;
   margin: 0 auto 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(165, 28, 48, 0.12);
+  display: block;
+  object-fit: cover;
   border: 1px solid rgba(165, 28, 48, 0.35);
-  color: ${theme.color.crimson};
-  font-family: ${theme.font.serif};
-  font-size: 2.1rem;
-  letter-spacing: 0.04em;
 `;
 
 const Name = styled.h3`
@@ -62,17 +60,22 @@ const leadership = [
   {
     name: 'Tyler Mangini',
     title: 'Co-President',
-    initials: 'TM',
+    photo: `${process.env.PUBLIC_URL}/tyler.png`,
   },
   {
     name: 'Gurshaan Madan',
     title: 'Co-President',
-    initials: 'GM',
+    photo: `${process.env.PUBLIC_URL}/gurshaan.jpeg`,
+  },
+  {
+    name: 'Tom Stotzer',
+    title: 'Chief Operating Officer',
+    photo: `${process.env.PUBLIC_URL}/tom.jpeg`,
   },
   {
     name: 'Nathan Shiham Alam',
     title: 'Chief Financial Officer',
-    initials: 'NA',
+    photo: `${process.env.PUBLIC_URL}/nathan.png`,
   },
 ];
 
@@ -83,7 +86,7 @@ const Leadership: React.FC = () => {
       <Grid>
         {leadership.map(leader => (
           <Card key={leader.name}>
-            <Monogram aria-hidden="true">{leader.initials}</Monogram>
+            <Photo src={leader.photo} alt={leader.name} />
             <Name>{leader.name}</Name>
             <Role>{leader.title}</Role>
           </Card>

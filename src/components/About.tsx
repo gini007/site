@@ -1,199 +1,109 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { theme } from '../styles/theme';
 
-const AboutSection = styled.section`
-  padding: 60px 50px;
-  max-width: 1200px;
+const Section = styled.section`
+  max-width: ${theme.width};
   margin: 0 auto;
-  background: linear-gradient(135deg, rgba(165, 28, 48, 0.04), rgba(200, 16, 46, 0.04));
-  border-radius: 20px;
-  margin: 10px auto;
-  border: 1px solid rgba(165, 28, 48, 0.1);
-  
-  @media (max-width: 768px) {
-    padding: 40px 20px;
-    margin: 5px 20px;
-  }
+  padding: 24px 24px 80px;
 `;
 
-const SectionTitle = styled(motion.h3)`
-  font-family: 'Orbitron', monospace;
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-align: center;
-  color: #A51C30;
-  text-shadow: 0 0 15px rgba(165, 28, 48, 0.4);
+const Intro = styled.div`
+  max-width: 40rem;
+  margin-bottom: 48px;
 `;
 
-const MissionText = styled(motion.p)`
-  font-size: 1.2rem;
-  line-height: 1.8;
-  text-align: center;
-  color: #ddd;
-  margin-bottom: 40px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+const SectionTitle = styled.h2`
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 16px;
 `;
 
-const TechIconsGrid = styled.div`
+const Mission = styled.p`
+  color: ${theme.color.muted};
+  font-size: 1.12rem;
+`;
+
+const Pillars = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 500px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  @media (max-width: 400px) {
-    gap: 15px;
-    max-width: 350px;
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
   }
 `;
 
-const TechIconItem = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  background: rgba(165, 28, 48, 0.05);
-  border: 1px solid rgba(165, 28, 48, 0.15);
-  border-radius: 16px;
-  transition: all 0.3s;
-  cursor: pointer;
-  
-  &:hover {
-    border-color: rgba(165, 28, 48, 0.3);
-    box-shadow: 0 15px 35px rgba(165, 28, 48, 0.15);
-  }
-  
-  @media (max-width: 768px) {
-    padding: 20px 15px;
-    border-radius: 12px;
-  }
-  
-  @media (max-width: 400px) {
-    padding: 15px 10px;
-  }
+const Pillar = styled.article`
+  padding: 24px;
+  background: ${theme.color.surface};
+  border: 1px solid ${theme.color.line};
+  border-radius: 14px;
 `;
 
-const TechIcon = styled.div`
-  font-size: 3.5rem;
-  margin-bottom: 15px;
-  transition: transform 0.3s;
-  
-  ${TechIconItem}:hover & {
-    transform: scale(1.2);
-  }
-  
-  @media (max-width: 768px) {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-  }
-  
-  @media (max-width: 400px) {
-    font-size: 2.2rem;
-    margin-bottom: 8px;
-  }
+const PillarIndex = styled.span`
+  display: block;
+  color: ${theme.color.crimson};
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 14px;
 `;
 
-const TechLabel = styled.span`
-  font-size: 1.1rem;
-  color: #ccc;
-  text-align: center;
-  font-weight: 500;
-  
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-  
-  @media (max-width: 400px) {
-    font-size: 0.9rem;
-  }
+const PillarTitle = styled.h3`
+  font-size: 1.35rem;
+  margin-bottom: 10px;
 `;
 
-const techData = [
-  { icon: '🤖', label: 'Robotics' },
-  { icon: '🏭', label: 'Manufacturing' },
-  { icon: '⚛️', label: 'Quantum Computing' },
-  { icon: '🌱', label: 'Climate Tech' },
-  { icon: '🧬', label: 'Biotech' },
-  { icon: '⚗️', label: 'Materials Science' }
+const PillarBody = styled.p`
+  color: ${theme.color.muted};
+  font-size: 0.98rem;
+`;
+
+const pillars = [
+  {
+    title: 'A community around hard tech',
+    body: 'The kickoff turned broad interest into a shared mission, with roughly 200 students already engaged in the first semester.',
+  },
+  {
+    title: 'Founders and operators in the room',
+    body: 'Argus, Waabi, Formlabs, and RightHand Robotics gave members direct access to people building and commercializing Physical AI.',
+  },
+  {
+    title: 'Labs, floors, and workflows',
+    body: 'The SEAS / Grid tour and RightHand visit moved the club beyond discussion into makerspaces, robotics labs, and operating environments.',
+  },
+  {
+    title: 'Careers, ventures, and belonging',
+    body: 'Programming linked emerging technology to company-building, while mixers and an alumni breakfast made space for collaboration.',
+  },
 ];
 
 const About: React.FC = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <AboutSection id="about" ref={ref}>
-      <SectionTitle
-        initial={{ opacity: 0, y: 30 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        MISSION PROTOCOL
-      </SectionTitle>
-      
-      <MissionText
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      >
-        We are a community of future business leaders united by our passion for commercializing cutting-edge technology and research. Our mission is to help prepare the HBS community to bridge the gap between breakthrough innovations and business applications, across the variety of promising fields below.
-      </MissionText>
-      
-      <TechIconsGrid
-        as={motion.div}
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        {techData.map((tech, index) => (
-          <TechIconItem
-            key={index}
-            variants={itemVariants}
-            whileHover={{ y: -5, scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <TechIcon>{tech.icon}</TechIcon>
-            <TechLabel>{tech.label}</TechLabel>
-          </TechIconItem>
+    <Section id="about">
+      <Intro>
+        <SectionTitle>About the club</SectionTitle>
+        <Mission>
+          We are future business leaders focused on commercializing breakthrough
+          science and engineering. The work sits at the intersection of Physical
+          AI, robotics, automation, and community-building — preparing HBS
+          students to turn R&amp;D into companies, products, and careers.
+        </Mission>
+      </Intro>
+      <Pillars>
+        {pillars.map((pillar, index) => (
+          <Pillar key={pillar.title}>
+            <PillarIndex>{String(index + 1).padStart(2, '0')}</PillarIndex>
+            <PillarTitle>{pillar.title}</PillarTitle>
+            <PillarBody>{pillar.body}</PillarBody>
+          </Pillar>
         ))}
-      </TechIconsGrid>
-    </AboutSection>
+      </Pillars>
+    </Section>
   );
 };
 

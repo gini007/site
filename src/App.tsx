@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
 import Events from './components/Events';
 import Footer from './components/Footer';
 import Leadership from './components/Leadership';
@@ -25,7 +24,6 @@ function App() {
         <Header />
         <main>
           <Hero />
-          <About />
           <Events />
           <Leadership />
         </main>

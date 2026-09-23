@@ -45,7 +45,10 @@ const Links = styled.div`
 const FooterLink = styled.a`
   display: inline-flex;
   align-items: center;
-  padding: 10px 16px;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 1px solid ${theme.color.lineStrong};
   border-radius: 999px;
   font-size: 0.92rem;
@@ -65,6 +68,22 @@ const JoinLink = styled(FooterLink)`
     background: ${theme.color.crimsonHover};
     border-color: ${theme.color.crimsonHover};
   }
+`;
+
+const Icon = styled.svg`
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+`;
+
+const LinkedInIcon = styled.svg`
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
 `;
 
 const Copyright = styled.p`
@@ -87,15 +106,46 @@ const Footer: React.FC = () => {
           </Note>
         </div>
         <Links>
-          <JoinLink href={JOIN_URL} target="_blank" rel="noopener noreferrer">
-            Join on Eventbrite
+          <JoinLink
+            href={JOIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Join on Eventbrite"
+            title="Join on Eventbrite"
+          >
+            <Icon viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M8 2v4M16 2v4M3 9h18M8 13h3M8 17h5" />
+            </Icon>
           </JoinLink>
-          <FooterLink href={EVENTS_URL} target="_blank" rel="noopener noreferrer">
-            View events on Luma
+          <FooterLink
+            href={EVENTS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View events on Luma"
+            title="View events on Luma"
+          >
+            <Icon viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <path d="M3 9h18M8 2v4M16 2v4M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01" />
+            </Icon>
           </FooterLink>
-          <FooterLink href={EMAIL_URL}>Email</FooterLink>
-          <FooterLink href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
-            LinkedIn
+          <FooterLink href={EMAIL_URL} aria-label="Email" title="Email">
+            <Icon viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m4 7 8 6 8-6" />
+            </Icon>
+          </FooterLink>
+          <FooterLink
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            title="LinkedIn"
+          >
+            <LinkedInIcon viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5.2 7.4A2.2 2.2 0 1 0 5.2 3a2.2 2.2 0 0 0 0 4.4ZM3.3 21h3.8V9H3.3v12ZM9.4 9v12h3.8v-6.7c0-1.8.3-3.6 2.6-3.6s2.3 2.1 2.3 3.7V21H22v-7.4C22 10 21.2 8.5 17.8 8.5c-1.6 0-2.8.9-3.3 1.7h-.1V9H9.4Z" />
+            </LinkedInIcon>
           </FooterLink>
         </Links>
       </Inner>

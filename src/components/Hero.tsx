@@ -8,12 +8,10 @@ const HeroSection = styled.section`
   margin: 0 auto;
   padding: 88px 24px 72px;
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-columns: 1fr;
   gap: 64px;
-  align-items: end;
 
   @media (max-width: 800px) {
-    grid-template-columns: 1fr;
     padding: 56px 24px 48px;
     gap: 40px;
   }
@@ -31,13 +29,11 @@ const Eyebrow = styled.p`
 const Title = styled.h1`
   font-size: clamp(2.6rem, 6vw, 4.6rem);
   margin-bottom: 20px;
-  max-width: 14ch;
 `;
 
 const Description = styled.p`
   font-size: 1.15rem;
   color: ${theme.color.muted};
-  max-width: 38rem;
   margin-bottom: 32px;
 `;
 
@@ -108,34 +104,9 @@ const Hero: React.FC = () => {
         <Eyebrow>Harvard Business School</Eyebrow>
         <Title>Automation & Deep Tech</Title>
         <Description>
-          A student club building the HBS community around Physical AI, robotics,
-          automation, and the commercialization of R&amp;D-driven science.
+          A student club building the HBS community around Physical AI, robotics, automation, and the commercialization of R&amp;D-driven science.
         </Description>
-        <Actions>
-          <PrimaryButton href={JOIN_URL} target="_blank" rel="noopener noreferrer">
-            Join the club
-          </PrimaryButton>
-          <SecondaryButton href="#events">See upcoming events</SecondaryButton>
-        </Actions>
       </div>
-      <Stats>
-        <Stat>
-          <dt>~200</dt>
-          <dd>students at kickoff</dd>
-        </Stat>
-        <Stat>
-          <dt>10</dt>
-          <dd>documented events</dd>
-        </Stat>
-        <Stat>
-          <dt>4</dt>
-          <dd>fireside conversations</dd>
-        </Stat>
-        <Stat>
-          <dt>4</dt>
-          <dd>hands-on / community formats</dd>
-        </Stat>
-      </Stats>
     </HeroSection>
   );
 };

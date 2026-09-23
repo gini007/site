@@ -249,33 +249,6 @@ const Events: React.FC = () => {
           tabIndex={0}
         />
       </Calendar>
-      <Intro>
-        <SectionTitle>2025 highlights</SectionTitle>
-        <Lead>
-          In its first semester, the Automation & Deep Tech Club brought the HBS
-          community closer to the people, places, and technologies shaping the
-          physical world. From founders building Physical AI and autonomous
-          trucking to hands-on visits with Harvard labs and RightHand Robotics,
-          the club paired deep-tech learning with the relationships that turn
-          ideas into action.
-        </Lead>
-      </Intro>
-      {groups.map(group => (
-        <Group key={group.label}>
-          <GroupLabel>{group.label}</GroupLabel>
-          {group.events.map(event => (
-            <EventRow key={event.title}>
-              <EventDate>{event.date}</EventDate>
-              <div>
-                <EventTitle>{event.title}</EventTitle>
-                <EventPlace>{event.place}</EventPlace>
-                <EventAngle>{event.angle}</EventAngle>
-              </div>
-              <FormatChip>{event.format}</FormatChip>
-            </EventRow>
-          ))}
-        </Group>
-      ))}
     </Section>
   );
 };

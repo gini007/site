@@ -129,7 +129,7 @@ const Header: React.FC = () => {
             src={`${process.env.PUBLIC_URL}/adtc/adtc_white_logo_only.png`}
             alt="Automation & Deep Tech Club"
           />
-          Deep Tech @ HBS
+          HBS ADTC
         </Logo>
 
         <HamburgerButton

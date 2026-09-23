@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { JOIN_URL } from '../constants';
 import { theme } from '../styles/theme';
 
 const HeroSection = styled.section`
@@ -35,66 +34,6 @@ const Description = styled.p`
   font-size: 1.15rem;
   color: ${theme.color.muted};
   margin-bottom: 32px;
-`;
-
-const Actions = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-`;
-
-const PrimaryButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 22px;
-  background: ${theme.color.crimson};
-  color: ${theme.color.text};
-  font-weight: 600;
-  border-radius: 999px;
-
-  &:hover {
-    background: ${theme.color.crimsonHover};
-  }
-`;
-
-const SecondaryButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  padding: 12px 22px;
-  border: 1px solid ${theme.color.lineStrong};
-  color: ${theme.color.text};
-  font-weight: 600;
-  border-radius: 999px;
-  cursor: pointer;
-
-  &:hover {
-    border-color: ${theme.color.text};
-  }
-`;
-
-const Stats = styled.dl`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 24px;
-  padding: 28px;
-  background: ${theme.color.surface};
-  border: 1px solid ${theme.color.line};
-  border-radius: 16px;
-`;
-
-const Stat = styled.div`
-  dt {
-    font-family: ${theme.font.serif};
-    font-size: 2rem;
-    color: ${theme.color.text};
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  dd {
-    color: ${theme.color.muted};
-    font-size: 0.88rem;
-  }
 `;
 
 const Hero: React.FC = () => {

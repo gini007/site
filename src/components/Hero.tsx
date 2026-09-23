@@ -115,7 +115,7 @@ const Hero: React.FC = () => {
           <PrimaryButton href={JOIN_URL} target="_blank" rel="noopener noreferrer">
             Join the club
           </PrimaryButton>
-          <SecondaryButton href="#events">See 2025 highlights</SecondaryButton>
+          <SecondaryButton href="#events">See upcoming events</SecondaryButton>
         </Actions>
       </div>
       <Stats>

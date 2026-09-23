@@ -36,6 +36,28 @@ const Lead = styled.p`
   font-size: 1.12rem;
 `;
 
+const Calendar = styled.div`
+  margin-bottom: 72px;
+  padding: 12px;
+  background: ${theme.color.surface};
+  border: 1px solid ${theme.color.line};
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.18);
+`;
+
+const CalendarFrame = styled.iframe`
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: 1px solid rgba(191, 203, 218, 0.53);
+  border-radius: 8px;
+  background: ${theme.color.bg};
+
+  @media (max-width: 700px) {
+    height: 520px;
+  }
+`;
+
 const Group = styled.section`
   margin-bottom: 40px;
 
@@ -211,6 +233,22 @@ const groups: EventGroup[] = [
 const Events: React.FC = () => {
   return (
     <Section id="events">
+      <Intro>
+        <SectionTitle>Upcoming events</SectionTitle>
+        <Lead>
+          Find upcoming Automation & Deep Tech Club events, then explore the
+          highlights from our first semester below.
+        </Lead>
+      </Intro>
+      <Calendar>
+        <CalendarFrame
+          src="https://luma.com/embed/calendar/cal-W8lRFxvwjpGEf34/events"
+          title="Automation & Deep Tech Club events"
+          allowFullScreen
+          aria-hidden="false"
+          tabIndex={0}
+        />
+      </Calendar>
       <Intro>
         <SectionTitle>2025 highlights</SectionTitle>
         <Lead>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { EMAIL_URL, JOIN_URL, LINKEDIN_URL } from '../constants';
+import { EMAIL_URL, EVENTS_URL, JOIN_URL, LINKEDIN_URL } from '../constants';
 import { theme } from '../styles/theme';
 
 const FooterContainer = styled.footer`
@@ -82,13 +82,17 @@ const Footer: React.FC = () => {
         <div>
           <Title>Get involved</Title>
           <Note>
-            Join the club on Eventbrite, or reach the team by email and LinkedIn.
+            Browse upcoming events on Luma, join the club on Eventbrite, or reach
+            the team by email and LinkedIn.
           </Note>
         </div>
         <Links>
           <JoinLink href={JOIN_URL} target="_blank" rel="noopener noreferrer">
             Join on Eventbrite
           </JoinLink>
+          <FooterLink href={EVENTS_URL} target="_blank" rel="noopener noreferrer">
+            View events on Luma
+          </FooterLink>
           <FooterLink href={EMAIL_URL}>Email</FooterLink>
           <FooterLink href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
             LinkedIn

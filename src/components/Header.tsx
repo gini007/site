@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import clubLogo from '../assets/logo.png';
 import { JOIN_URL } from '../constants';
 import { theme } from '../styles/theme';
 
@@ -126,7 +125,10 @@ const Header: React.FC = () => {
     <HeaderContainer>
       <Nav>
         <Logo href="#top" onClick={() => goTo('top')}>
-          <img src={clubLogo} alt="Automation & Deep Tech Club" />
+          <img
+            src={`${process.env.PUBLIC_URL}/adtc/adtc_white_logo_only.png`}
+            alt="Automation & Deep Tech Club"
+          />
           Deep Tech @ HBS
         </Logo>
 
